@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_kc( \
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     BSLS,LCBR,RCBR,PIPE,AMPR,EXLM,               AT  ,EQL ,MINS,PLUS,ASTR,PERC,
+     BSLS,LCBR,RCBR,PIPE,AMPR,EXLM,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ` [ ] ^ $ _
 
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     BSLS,LCBR,RCBR,PIPE,AMPR,EXLM,               AT  ,EQL ,MINS,PLUS,ASTR,PERC,
+     BSLS,LCBR,RCBR,PIPE,AMPR,EXLM,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      HASH,LPRN,RPRN,DQT ,QUOT,TILD,               LEFT,DOWN, UP ,RGHT,    ,    ,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|

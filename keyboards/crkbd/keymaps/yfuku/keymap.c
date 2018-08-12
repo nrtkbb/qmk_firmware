@@ -99,6 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc( \
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,MINS,
+//     RGB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,RGB ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      LCMD, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,RCMD,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
@@ -130,7 +131,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      HASH,LPRN,RPRN,DQT ,QUOT,TILD,               LEFT,DOWN, UP ,RGHT,    ,    ,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
-     GRV ,LBRC,RBRC,CIRC,DLR ,UNDS,               CMDL,CTLA,CTLE,CMDR,    ,    ,
+     GRV ,LBRC,RBRC,    ,CIRC,DLR ,               CMDL,CTLA,CTLE,CMDR,    ,    ,
   //`----+----+----+--+-+----+----+              +----+----+----+----+----+----'
                        ,CTL_LEFT,BSPC,             ,    ,
   //                  `----+----+----'        `----+----+----'

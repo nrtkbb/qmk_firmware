@@ -77,7 +77,7 @@ enum macro_keycodes {
 
 #define KC_L1SP LT(3, KC_SPC)
 #define KC_L2ET LT(4, KC_ENT)
-#define KC_RGB MO(16)
+#define KC_ADJD MO(16)
 
 #define KC_CMDL LCMD(KC_LEFT)
 #define KC_CMDR LCMD(KC_RIGHT)
@@ -99,13 +99,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc( \
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,MINS,
-//     RGB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,RGB ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      LCMD, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,RCMD,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
      LSFE, Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,RSFE,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                       LALT,CTL2,L1SP,         L2ET,CTL1,RGB    
+                       LALT,CTL2,L1SP,         L2ET,CTL1,BSPC
   //                  `----+----+----'        `----+----+----'
   ), 
 
@@ -115,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,F1  ,F2  ,VD  ,VU  ,    ,                   ,    ,    ,    ,    ,    ,
+         ,F1  ,F2  ,VD  ,VU  ,ADJD,               RST ,LRST,LTOG,    ,    ,    ,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
                            ,    ,    ,         DEL ,CTL_RIGHT,
   //                  `----+----+----'        `----+----+----'
@@ -124,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_RAISE] = LAYOUT_kc( \
   // \ { } | & !      @ = + * %    
   // # ( ) " ' ~     
-  // ` [ ] ^ $ _
+  // ` [ ]   ^ $
 
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      BSLS,LCBR,RCBR,PIPE,AMPR,EXLM,               AT  ,EQL ,PLUS,ASTR,PERC,    ,

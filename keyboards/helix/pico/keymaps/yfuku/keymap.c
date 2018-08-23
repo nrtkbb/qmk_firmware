@@ -163,7 +163,7 @@ LSFT_T(KC_ESC), KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      K
    */
   [_ADJUST] =  LAYOUT( \
       _______, RESET,   _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______, \
-      _______, AU_ON,   AU_OFF,  MU_TOG,  MU_MOD,  AG_NORM,                   AG_SWAP, QWERTY,  COLEMAK, DVORAK,  _______, _______, \
+      _______, AU_ON,   AU_OFF,  MU_TOG,  MU_MOD,  AG_NORM,                   _______, QWERTY,  _______, _______,  _______, _______, \
       _______, CK_TOGG, CK_RST,  CK_UP,   CK_DOWN, _______,                   _______, _______, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, \
       _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_SMOD,RGB_HUD, RGB_SAD, RGB_VAD \
       )

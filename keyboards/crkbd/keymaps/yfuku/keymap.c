@@ -104,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
      LSFE, Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,RSFE,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                       LALT,CTL2,L1SP,         L2ET,CTL1,BSPC
+                       LALT,CTL2,L1SP,         L2ET,CTL1,
   //                  `----+----+----'        `----+----+----'
   ), 
 
@@ -112,27 +112,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      BSLS,LCBR,RCBR,PIPE,AMPR,EXLM,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,    ,
+     RST , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,F1  ,F2  ,VD  ,VU  ,ADJD,               RST ,LRST,LTOG,    ,    ,    ,
+     LRST,F1  ,F2  ,VD  ,VU  ,ADJD,                   ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                           ,    ,    ,         DEL ,CTL_RIGHT,
+                           ,    ,    ,         DEL ,DEL ,
   //                  `----+----+----'        `----+----+----'
   ),
 
   [_RAISE] = LAYOUT_kc( \
-  // \ { } | & !      @ = + * %    
+  // \ { } ! & |      @ = + * %    
   // # ( ) " ' ~     
   // ` [ ]   ^ $
 
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     BSLS,LCBR,RCBR,PIPE,AMPR,EXLM,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
+     BSLS,LCBR,RCBR,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      HASH,LPRN,RPRN,DQT ,QUOT,TILD,               LEFT,DOWN, UP ,RGHT,    ,    ,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
-     GRV ,LBRC,RBRC,    ,CIRC,DLR ,               CMDL,CTLA,CTLE,CMDR,    ,    ,
+     GRV ,LBRC,RBRC,    ,CIRC,DLR ,               CTLA,CTLE,CMDL,CMDR,CTL_LEFT,CTL_RIGHT,
   //`----+----+----+--+-+----+----+              +----+----+----+----+----+----'
-                       ,CTL_LEFT,BSPC,             ,    ,
+                        ,BSPC,BSPC,              ,    ,
   //                  `----+----+----'        `----+----+----'
   ),
 

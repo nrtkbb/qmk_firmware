@@ -108,38 +108,39 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   SFTESC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,SFTESC,
+   CMDESC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,CMDESC,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
-         , Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,    ,
+     LALT, Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,RALT,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                       LALT,CMD2,L1SP,         L2ET,CTL1,RALT
+                       LCTL,SFT2,L1SP,         L2ET,SFT1,RCTL
   //                  `----+----+----'        `----+----+----'
   ), 
 
   [_LOWER] = LAYOUT_kc( \
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     BSLS,GRV ,HASH,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
+     BSLS,LCBR,RCBR,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                        RST,ADJD,XXXX,         RPRN,RBRC,RCBR
+                        RST,ADJD,XXXX,         SPC ,    ,    
   //                  `----+----+----'        `----+----+----'
   ),
 
   [_RAISE] = LAYOUT_kc( \
-  // \ ` # ! &  |      @ = + * %    
-  // ^ $ " ' BS ~     
+  // \ { } ! & |      @ = + * %
+  // # ( ) " ' ~
+  // ` [ ]   ^ $
 
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     BSLS,GRV ,HASH,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
+     BSLS,LCBR,RCBR,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     CIRC,DLR ,DQT ,QUOT,BSPC,TILD,               LEFT,DOWN, UP ,RGHT,CTLL,CTLR,
+     HASH,LPRN,RPRN,DQT ,QUOT,TILD,               LEFT,DOWN, UP ,RGHT,    ,    ,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,             CMDTAB,    ,CMDL,CMDR,    ,    ,
+     GRV ,LBRC,RBRC,    ,CIRC,DLR ,                   ,    ,CMDL,CMDR,    ,    ,
   //`----+----+----+--+-+----+----+              +----+----+----+----+----+----'
-                       LCBR,LBRC,LPRN,         XXXX,VD  ,VU
+                           ,BSPC,ENT ,         XXXX,VD  ,VU
   //                  `----+----+----'        `----+----+----'
   ),
 

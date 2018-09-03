@@ -51,6 +51,7 @@ enum macro_keycodes {
 };
 
 #define KC______ KC_TRNS
+#define KC_XXXX  KC_NO
 #define KC_XXXXX KC_NO
 #define KC_LOWER LOWER
 #define KC_RAISE RAISE
@@ -72,8 +73,9 @@ enum macro_keycodes {
 
 // yfuku
 #define KC_ KC_TRNS
-#define KC_LSFE LSFT_T(KC_ESC)
-#define KC_RSFE RSFT_T(KC_ESC)
+#define KC_SFTESC LSFT_T(KC_ESC)
+#define KC_CTLESC LCTL_T(KC_ESC)
+#define KC_CMDESC LCMD_T(KC_ESC)
 
 #define KC_L1SP LT(3, KC_SPC)
 #define KC_L2ET LT(4, KC_ENT)
@@ -82,13 +84,19 @@ enum macro_keycodes {
 #define KC_CMDL LCMD(KC_LEFT)
 #define KC_CMDR LCMD(KC_RIGHT)
 
+#define KC_CMDTAB LCMD(KC_TAB)
+
 #define KC_CTLA LCTL(KC_A)
 #define KC_CTLE LCTL(KC_E)
-#define KC_CTL_RIGHT LCTL(KC_RIGHT)
-#define KC_CTL_LEFT  LCTL(KC_LEFT)
+#define KC_CTLR LCTL(KC_RIGHT)
+#define KC_CTLL LCTL(KC_LEFT)
 
 #define KC_CTL1 CTL_T(KC_LANG1)
 #define KC_CTL2 CTL_T(KC_LANG2)
+#define KC_SFT1 LSFT_T(KC_LANG1)
+#define KC_SFT2 LSFT_T(KC_LANG2)
+#define KC_CMD1 LCMD_T(KC_LANG1)
+#define KC_CMD2 LCMD_T(KC_LANG2)
 
 #define KC_VD KC__VOLDOWN
 #define KC_VU KC__VOLUP
@@ -100,45 +108,44 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     LCMD, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,RCMD,
+   SFTESC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,SFTESC,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
-     LSFE, Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,RSFE,
+         , Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,    ,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                       LALT,CTL2,L1SP,         L2ET,CTL1,
+                       LALT,CMD2,L1SP,         L2ET,CTL1,RALT
   //                  `----+----+----'        `----+----+----'
   ), 
 
   [_LOWER] = LAYOUT_kc( \
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     BSLS,LCBR,RCBR,PIPE,AMPR,EXLM,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
+     BSLS,GRV ,HASH,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     RST , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,    ,
+         , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     LRST,F1  ,F2  ,VD  ,VU  ,ADJD,                   ,    ,    ,    ,    ,    ,
+         ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                           ,    ,    ,         DEL ,DEL ,
+                        RST,ADJD,XXXX,         RPRN,RBRC,RCBR
   //                  `----+----+----'        `----+----+----'
   ),
 
   [_RAISE] = LAYOUT_kc( \
-  // \ { } ! & |      @ = + * %    
-  // # ( ) " ' ~     
-  // ` [ ]   ^ $
+  // \ ` # ! &  |      @ = + * %    
+  // ^ $ " ' BS ~     
 
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     BSLS,LCBR,RCBR,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
+     BSLS,GRV ,HASH,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     HASH,LPRN,RPRN,DQT ,QUOT,TILD,               LEFT,DOWN, UP ,RGHT,    ,    ,
+     CIRC,DLR ,DQT ,QUOT,BSPC,TILD,               LEFT,DOWN, UP ,RGHT,CTLL,CTLR,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
-     GRV ,LBRC,RBRC,    ,CIRC,DLR ,               CTLA,CTLE,CMDL,CMDR,CTL_LEFT,CTL_RIGHT,
+         ,    ,    ,    ,    ,    ,             CMDTAB,    ,CMDL,CMDR,    ,    ,
   //`----+----+----+--+-+----+----+              +----+----+----+----+----+----'
-                        ,BSPC,BSPC,              ,    ,
+                       LCBR,LBRC,LPRN,         XXXX,VD  ,VU
   //                  `----+----+----'        `----+----+----'
   ),
 
   [_ADJUST] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        RST,  LRST,  LRBW, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
+        RST,  LRST,  LRBW, XXXXX, XXXXX, XXXXX,                  F1   , F2   , VD   , VU   , XXXXX, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LTOG,  LHUI,  LSAI,  LVAI, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|

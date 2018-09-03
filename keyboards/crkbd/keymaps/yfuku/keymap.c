@@ -103,6 +103,8 @@ enum macro_keycodes {
 
 #define KC_STAB S(KC_TAB)
 
+#define KC_CTLBS LCTL_T(KC_BSPC)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc( \
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
@@ -112,13 +114,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
      LALT, Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,RALT,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                       LCTL,SFT2,L1SP,         L2ET,SFT1,RCTL
+                      CTLBS,SFT2,L1SP,         L2ET,SFT1,CTLBS
   //                  `----+----+----'        `----+----+----'
   ), 
 
   [_LOWER] = LAYOUT_kc( \
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     BSLS,LCBR,RCBR,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
+         ,    ,    ,    ,    ,    ,                   ,EQL ,PLUS,ASTR,PERC,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
@@ -138,9 +140,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      HASH,LPRN,RPRN,DQT ,QUOT,TILD,               LEFT,DOWN, UP ,RGHT,    ,    ,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
-     GRV ,LBRC,RBRC,    ,CIRC,DLR ,                   ,    ,CMDL,CMDR,    ,    ,
+     GRV ,LBRC,RBRC,    ,CIRC,DLR ,                   ,CMDL,CMDR,    ,    ,    ,
   //`----+----+----+--+-+----+----+              +----+----+----+----+----+----'
-                           ,BSPC,ENT ,         XXXX,VD  ,VU
+                           ,    ,ENT ,         XXXX,VD  ,VU
   //                  `----+----+----'        `----+----+----'
   ),
 

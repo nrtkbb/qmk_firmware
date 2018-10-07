@@ -106,15 +106,17 @@ enum macro_keycodes {
 #define KC_CTLBS LCTL_T(KC_BSPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+
   [_QWERTY] = LAYOUT_kc( \
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   CMDESC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,CMDESC,
+   CMDESC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,CMDESC, // esc/cmd
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
      LALT, Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,RALT,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
                       CTLBS,SFT2,L1SP,         L2ET,SFT1,CTLBS
+  // bs/ctrl, 英数/shift, space/lower,         enter/raise, かな/shift, bs/ctrl
   //                  `----+----+----'        `----+----+----'
   ), 
 
@@ -126,14 +128,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                        RST,ADJD,XXXX,         SPC ,    ,    
+                           ,    ,    ,         DEL ,    ,    
   //                  `----+----+----'        `----+----+----'
   ),
 
   [_RAISE] = LAYOUT_kc( \
   // \ [ ] ! & |      @ = + * %
   // # ( ) " ' ~ 
-      // ` { }   ^ $
+  // ` { }   ^ $
 
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      BSLS,LBRC,RBRC,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
@@ -142,7 +144,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
      GRV ,LCBR,RCBR,    ,CIRC,DLR ,             CMDTAB,CMDL,CMDR,CTLL,CTLR,    ,
   //`----+----+----+--+-+----+----+              +----+----+----+----+----+----'
-                           ,    ,BSPC,         XXXX,VD  ,VU
+                           ,    ,BSPC,             ,    ,  
   //                  `----+----+----'        `----+----+----'
   ),
 

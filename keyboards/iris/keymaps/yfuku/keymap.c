@@ -18,6 +18,8 @@ enum custom_keycodes {
 
 #define KC_ KC_TRNS
 #define _______ KC_TRNS
+#define KC_XXXX  KC_NO
+#define KC_XXXXX KC_NO
 
 #define KC_LOWR LOWER
 #define KC_RASE RAISE
@@ -34,31 +36,38 @@ enum custom_keycodes {
 #define KC_RVAD RGB_VAD
 
 //yfuku
-
-#define KC_LSFE LSFT_T(KC_ESC)
-#define KC_RSFE RSFT_T(KC_ESC)
+#define KC_ KC_TRNS
+#define KC_SFTESC LSFT_T(KC_ESC)
+#define KC_CTLESC LCTL_T(KC_ESC)
+#define KC_CMDESC LCMD_T(KC_ESC)
 
 #define KC_L1SP LT(1, KC_SPC)
 #define KC_L2ET LT(2, KC_ENT)
+#define KC_ADJD MO(16)
 
 #define KC_CMDL LCMD(KC_LEFT)
 #define KC_CMDR LCMD(KC_RIGHT)
 
+#define KC_CMDTAB LCMD(KC_TAB)
+
 #define KC_CTLA LCTL(KC_A)
 #define KC_CTLE LCTL(KC_E)
-#define KC_CTL_RIGHT LCTL(KC_RIGHT)
-#define KC_CTL_LEFT  LCTL(KC_LEFT)
+#define KC_CTLR LCTL(KC_RIGHT)
+#define KC_CTLL LCTL(KC_LEFT)
 
 #define KC_CTL1 CTL_T(KC_LANG1)
 #define KC_CTL2 CTL_T(KC_LANG2)
-
-#define KC_VD KC__VOLDOWN
-#define KC_VU KC__VOLUP
+#define KC_SFT1 LSFT_T(KC_LANG1)
+#define KC_SFT2 LSFT_T(KC_LANG2)
+#define KC_CMD1 LCMD_T(KC_LANG1)
+#define KC_CMD2 LCMD_T(KC_LANG2)
 
 #define KC_VD KC__VOLDOWN
 #define KC_VU KC__VOLUP
 
 #define KC_STAB S(KC_TAB)
+
+#define KC_CTLBS LCTL_T(KC_BSPC)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -69,11 +78,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     LCMD, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,RCMD,
+   CMDESC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,CMDESC, // esc/cmd 
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFE, Z  , X  , C  , V  , B  ,LEFT,    RIGHT, N  , M  ,COMM,DOT ,SLSH,RSFE,
+     LALT, Z  , X  , C  , V  , B  ,LEFT,    RIGHT, N  , M  ,COMM,DOT ,SLSH,RALT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LALT,CTL2,L1SP,         L2ET,CTL1,
+                      CTLBS,SFT2,L1SP,         L2ET,SFT1,CTLBS
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -81,13 +90,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
          ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     BSLS,LCBR,RCBR,PIPE,AMPR,EXLM,               AT  ,EQL ,MINS,PLUS,ASTR,PERC, 
+     BSLS,LBRC,RBRC,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,F1  ,F2  ,VD  ,VU  ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
+         ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,    ,         DEL ,CTL_RIGHT, 
+                        RST,ADJD,XXXX,         DEL ,    ,
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -95,13 +104,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
          ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     BSLS,LCBR,RCBR,PIPE,AMPR,EXLM,               AT  ,EQL ,MINS,PLUS,ASTR,PERC,
+     BSLS,LBRC,RBRC,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      HASH,LPRN,RPRN,DQT ,QUOT,TILD,               LEFT,DOWN, UP ,RGHT,    ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     GRV ,LBRC,RBRC,CIRC,DLR ,UNDS,    ,    ,     CMDL,CTLA,CTLE,CMDR,    ,    ,
+     GRV ,LCBR,RCBR,    ,CIRC,DLR ,    ,       ,CMDTAB,CMDL,CMDR,CTLL,CTLR,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       ,CTL_LEFT,BSPC,             ,    ,
+                           ,    ,BSPC,             ,    ,
   //                  `----+----+----'        `----+----+----'
   ),
 

@@ -104,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
      LALT, Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,RALT,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                      CTLBS,SFT2,L1SP,         L2ET,SFT1,CTLBS
+                  LALT,SFT2,L1SP,CTLBS,       CTLBS,L2ET,SFT1,RALT
   //                  `----+----+----'        `----+----+----'
   ), 
 
@@ -116,7 +116,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                        RST,ADJD,XXXX,         DEL ,    ,    
+                   RST,ADJD,    ,    ,            , DEL ,    ,    
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -132,7 +132,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
      GRV ,LCBR,RCBR,    ,CIRC,DLR ,             CMDTAB,CMDL,CMDR,CTLL,CTLR,    ,
   //`----+----+----+--+-+----+----+              +----+----+----+----+----+----'
-                           ,    ,BSPC,             ,    ,  
+                      ,    ,BSPC,    ,           ,    ,    ,  
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -144,7 +144,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       LSMOD,  LHUD,  LSAD,  LVAD, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
+                           GUIEI, LOWER,   SPC,XXXXX,    XXXXX,    ENT, RAISE, ALTKN \
                               //`--------------------'  `--------------------'
   )
 };

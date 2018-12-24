@@ -17,3 +17,6 @@
 #pragma once
 
 // place overrides here
+#define MOUSEKEY_WHEEL_MAX_SPEED   0.1
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 255
+

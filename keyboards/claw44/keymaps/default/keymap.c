@@ -62,37 +62,46 @@ enum macro_keycodes {
 
 // yfuku
 #define KC_ KC_TRNS
-#define KC_SFTESC LSFT_T(KC_ESC)
-#define KC_CTLESC LCTL_T(KC_ESC)
-#define KC_CMDESC LCMD_T(KC_ESC)
 
 #define KC_L1SP LT(3, KC_SPC)
 #define KC_L2ET LT(4, KC_ENT)
 #define KC_ADJD MO(16)
-
-#define KC_CMDL LCMD(KC_LEFT)
-#define KC_CMDR LCMD(KC_RIGHT)
+#define KC_VD KC__VOLDOWN
+#define KC_VU KC__VOLUP
 
 #define KC_CMDTAB LCMD(KC_TAB)
+#define KC_CMDL LCMD(KC_LEFT)
+#define KC_CMDR LCMD(KC_RIGHT)
 
 #define KC_CTLA LCTL(KC_A)
 #define KC_CTLE LCTL(KC_E)
 #define KC_CTLR LCTL(KC_RIGHT)
 #define KC_CTLL LCTL(KC_LEFT)
 
-#define KC_CTL1 CTL_T(KC_LANG1)
-#define KC_CTL2 CTL_T(KC_LANG2)
-#define KC_SFT1 LSFT_T(KC_LANG1)
-#define KC_SFT2 LSFT_T(KC_LANG2)
-#define KC_CMD1 LCMD_T(KC_LANG1)
-#define KC_CMD2 LCMD_T(KC_LANG2)
+// shift_t
+#define KC_S_ESC LSFT_T(KC_ESC)
+#define KC_S_L1 LSFT_T(KC_LANG1)
+#define KC_S_L2 LSFT_T(KC_LANG2)
+#define KC_S_MINS LSFT_T(KC_MINS)
+#define KC_S_TAB LSFT_T(KC_TAB)
 
-#define KC_VD KC__VOLDOWN
-#define KC_VU KC__VOLUP
+// cmd_t
+#define KC_M_ESC LCMD_T(KC_ESC)
+#define KC_M_L1 LCMD_T(KC_LANG1)
+#define KC_M_L2 LCMD_T(KC_LANG2)
 
-#define KC_STAB S(KC_TAB)
+// ctl_t
+#define KC_C_ESC LCTL_T(KC_ESC)
+#define KC_C_L1 CTL_T(KC_LANG1)
+#define KC_C_L2 CTL_T(KC_LANG2)
+#define KC_C_BS LCTL_T(KC_BSPC)
+#define KC_C_DEL LCTL_T(KC_DEL)
+#define KC_C_TAB LCTL_T(KC_TAB)
+#define KC_C_MINS LCTL_T(KC_MINS)
 
-#define KC_CTLBS LCTL_T(KC_BSPC)
+// alt_t
+#define KC_A_ESC ALT_T(KC_ESC)
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -100,12 +109,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   CMDESC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,CMDESC, // esc/cmd
+    M_ESC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,M_ESC,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
-     LALT, Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,RALT,
-  //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                  LALT,SFT2,L1SP,CTLBS,       CTLBS,L2ET,SFT1,RALT
-  //                  `----+----+----'        `----+----+----'
+         , Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,    ,
+  //`----+----+----+----+----+----/              \----+----+----+----+----+----'
+                   A_ESC,S_L2,L1SP,C_DEL,    C_BS,L2ET,S_L2,A_ESC
+  //               `----+----+----+----'    `----+----+----+----'
   ), 
 
   [_LOWER] = LAYOUT_kc( \
@@ -116,8 +125,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                   RST,ADJD,    ,    ,            , DEL ,    ,    
-  //                  `----+----+----'        `----+----+----'
+                     RST,ADJD,    ,    ,         , SPC,    ,    
+  //               `----+----+----+----'    `----+----+----+----'
   ),
 
   [_RAISE] = LAYOUT_kc( \
@@ -132,8 +141,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
      GRV ,LCBR,RCBR,    ,CIRC,DLR ,             CMDTAB,CMDL,CMDR,CTLL,CTLR,    ,
   //`----+----+----+--+-+----+----+              +----+----+----+----+----+----'
-                      ,    ,BSPC,    ,           ,    ,    ,  
-  //                  `----+----+----'        `----+----+----'
+                        ,    ,ENT ,    ,         ,    ,    ,  
+  //               `----+----+----+----'    `----+----+----+----'
   ),
 
   [_ADJUST] = LAYOUT_kc( \

@@ -70,6 +70,7 @@ enum macro_keycodes {
 #define KC_VU KC__VOLUP
 
 #define KC_CMDTAB LCMD(KC_TAB)
+#define KC_CMDSPC LCMD(KC_SPC)
 #define KC_CMDL LCMD(KC_LEFT)
 #define KC_CMDR LCMD(KC_RIGHT)
 
@@ -80,12 +81,15 @@ enum macro_keycodes {
 
 // shift_t
 #define KC_S_ESC LSFT_T(KC_ESC)
+#define KC_S_BS LSFT_T(KC_BSPC)
 #define KC_S_L1 LSFT_T(KC_LANG1)
 #define KC_S_L2 LSFT_T(KC_LANG2)
 #define KC_S_MINS LSFT_T(KC_MINS)
 #define KC_S_TAB LSFT_T(KC_TAB)
 
 // cmd_t
+#define KC_M_BS LCMD_T(KC_BSPC)
+#define KC_M_DEL LCMD_T(KC_DEL)
 #define KC_M_ESC LCMD_T(KC_ESC)
 #define KC_M_L1 LCMD_T(KC_LANG1)
 #define KC_M_L2 LCMD_T(KC_LANG2)
@@ -101,19 +105,20 @@ enum macro_keycodes {
 
 // alt_t
 #define KC_A_ESC ALT_T(KC_ESC)
+#define KC_A_DEL ALT_T(KC_DEL)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT_kc( \
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,MINS,
+      TAB, Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-    M_ESC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,M_ESC,
+    S_ESC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,S_ESC,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
          , Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,    ,
   //`----+----+----+----+----+----/              \----+----+----+----+----+----'
-                   A_ESC,S_L2,L1SP,C_DEL,    C_BS,L2ET,S_L1,A_ESC
+                   A_DEL,M_L2,L1SP,C_BS,    C_BS,L2ET,M_L1,A_DEL
   //               `----+----+----+----'    `----+----+----+----'
   ), 
 
@@ -141,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
      GRV ,LCBR,RCBR,    ,CIRC,DLR ,             CMDTAB,CMDL,CMDR,CTLL,CTLR,    ,
   //`----+----+----+--+-+----+----+              +----+----+----+----+----+----'
-                        ,    ,BSPC,ENT ,         ,    ,    ,  
+                        ,CMDSPC,BSPC,ENT ,         ,    ,    ,  
   //               `----+----+----+----'    `----+----+----+----'
   ),
 

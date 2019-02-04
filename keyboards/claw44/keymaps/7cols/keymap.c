@@ -63,11 +63,8 @@ enum macro_keycodes {
 // yfuku
 #define KC_ KC_TRNS
 
-#define KC_L1_EN LT(3, KC_LANG2)
-#define KC_L2_JA LT(4, KC_LANG1)
-#define KC_L1_SPC LT(3, KC_SPC)
-#define KC_L2_ENT LT(4, KC_ENT)
-
+#define KC_L1SP LT(3, KC_SPC)
+#define KC_L2ET LT(4, KC_ENT)
 #define KC_ADJD MO(16)
 #define KC_VD KC__VOLDOWN
 #define KC_VU KC__VOLUP
@@ -84,7 +81,6 @@ enum macro_keycodes {
 
 // shift_t
 #define KC_S_ESC LSFT_T(KC_ESC)
-#define KC_S_BS LSFT_T(KC_BSPC)
 #define KC_S_L1 LSFT_T(KC_LANG1)
 #define KC_S_L2 LSFT_T(KC_LANG2)
 #define KC_S_MINS LSFT_T(KC_MINS)
@@ -94,9 +90,8 @@ enum macro_keycodes {
 #define KC_M_BS LCMD_T(KC_BSPC)
 #define KC_M_DEL LCMD_T(KC_DEL)
 #define KC_M_ESC LCMD_T(KC_ESC)
-#define KC_M_EN LCMD_T(KC_LANG2)
-#define KC_M_JA LCMD_T(KC_LANG1)
-#define KC_M_SPC LCMD_T(KC_SPC)
+#define KC_M_L1 LCMD_T(KC_LANG1)
+#define KC_M_L2 LCMD_T(KC_LANG2)
 
 // ctl_t
 #define KC_C_ESC LCTL_T(KC_ESC)
@@ -106,7 +101,6 @@ enum macro_keycodes {
 #define KC_C_DEL LCTL_T(KC_DEL)
 #define KC_C_TAB LCTL_T(KC_TAB)
 #define KC_C_MINS LCTL_T(KC_MINS)
-#define KC_C_ENT LCTL_T(KC_ENT)
 
 // alt_t
 #define KC_A_ESC ALT_T(KC_ESC)
@@ -117,25 +111,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT_kc( \
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-      TAB, Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,MINS,
+     XXXX, Q  , W  , E  , R  , T  ,BSLS,         , Y  , U  , I  , O  , P  ,XXXX,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-    S_ESC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,S_ESC,
+      TAB, A  , S  , D  , F  , G  ,LBRC,     RBRC, H  , J  , K  , L  ,SCLN,MINS,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
-         , Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,    ,
+     XXXX, Z  , X  , C  , V  , B  ,LPRN,     RPRN, N  , M  ,COMM,DOT ,SLSH,XXXX,
   //`----+----+----+----+----+----/              \----+----+----+----+----+----'
-                   A_DEL,M_EN,L1_SPC,C_BS,  C_BS,L2_ENT,M_JA,A_DEL
+                   A_DEL,S_L2,L1SP,M_ESC,   C_ESC,L2ET,S_L1,A_DEL
   //               `----+----+----+----'    `----+----+----+----'
   ), 
 
   [_LOWER] = LAYOUT_kc( \
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     BSLS,LBRC,RBRC,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
+     XXXX,EXLM,AMPR,DQT ,QUOT,TILD,    ,         ,AT  ,EQL ,PLUS,ASTR,PERC,XXXX,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,    ,
+     HASH, 1  , 2  , 3  , 4  , 5  ,CMDL,     CMDR, 6  , 7  , 8  , 9  , 0  ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
+     XXXX,    ,    ,GRV ,CIRC,DLR ,CTLL,     CTLR,LEFT,DOWN, UP ,RGHT,    ,XXXX,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                        ,    ,    ,    ,      SPC, DEL,    ,    
+                      ,CMDSPC,BSPC,ENT ,      SPC, DEL,    ,    
   //               `----+----+----+----'    `----+----+----+----'
   ),
 
@@ -145,13 +139,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ` { }   ^ $
 
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     BSLS,LBRC,RBRC,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
+         ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     HASH,LPRN,RPRN,DQT ,QUOT,TILD,               LEFT,DOWN, UP ,RGHT,    ,    ,
+         ,    ,    ,    ,    ,    ,                   ,    ,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
-     GRV ,LCBR,RCBR,    ,CIRC,DLR ,             CMDTAB,CMDL,CMDR,CTLL,CTLR,    ,
+     ,    ,    ,    ,    ,    ,                  ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+              +----+----+----+----+----+----'
-                        ,TAB ,BSPC,ENT ,         ,    ,    ,  
+                        ,,         ,    ,    ,  
   //               `----+----+----+----'    `----+----+----+----'
   ),
 

@@ -32,3 +32,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
   #define DISABLE_LEADER
 #endif // USE_Link_Time_Optimization
+
+#define USB_MAX_POWER_CONSUMPTION 100

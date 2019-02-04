@@ -63,8 +63,10 @@ enum macro_keycodes {
 // yfuku
 #define KC_ KC_TRNS
 
-#define KC_L1_EN LT(3, KC_LANG2)
+#define KC_L1_JA LT(3, KC_LANG1)
 #define KC_L2_JA LT(4, KC_LANG1)
+#define KC_L1_EN LT(3, KC_LANG2)
+#define KC_L2_EN LT(4, KC_LANG2)
 #define KC_L1_SPC LT(3, KC_SPC)
 #define KC_L2_ENT LT(4, KC_ENT)
 
@@ -77,10 +79,11 @@ enum macro_keycodes {
 #define KC_CMDL LCMD(KC_LEFT)
 #define KC_CMDR LCMD(KC_RIGHT)
 
-#define KC_CTLA LCTL(KC_A)
-#define KC_CTLE LCTL(KC_E)
-#define KC_CTLR LCTL(KC_RIGHT)
-#define KC_CTLL LCTL(KC_LEFT)
+#define KC_CL RCTL(KC_L)
+#define KC_CA LCTL(KC_A)
+#define KC_CE LCTL(KC_E)
+#define KC_CAR LCTL(KC_RIGHT)
+#define KC_CAL LCTL(KC_LEFT)
 
 // shift_t
 #define KC_S_ESC LSFT_T(KC_ESC)
@@ -112,18 +115,22 @@ enum macro_keycodes {
 #define KC_A_ESC ALT_T(KC_ESC)
 #define KC_A_DEL ALT_T(KC_DEL)
 
+// hyper
+#define KC_HA HYPR(KC_A)
+
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT_kc( \
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-      TAB, Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,MINS,
+     TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
     S_ESC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,S_ESC,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
-         , Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,    ,
+     ADJD, Z  , X  , C  , V  , B  ,                N  , M  ,COMM,DOT ,SLSH,    ,
   //`----+----+----+----+----+----/              \----+----+----+----+----+----'
-                   A_DEL,M_EN,L1_SPC,C_BS,  C_BS,L2_ENT,M_JA,A_DEL
+                 A_DEL,L1_EN,M_SPC,C_BS,     C_BS,L2_ENT,L1_JA,A_DEL
   //               `----+----+----+----'    `----+----+----+----'
   ), 
 
@@ -133,12 +140,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
+     RST ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----/              \----+----+----+----+----+----'
-                        ,    ,    ,    ,      SPC, DEL,    ,    
+                        ,    ,    ,    ,      SPC,    ,    ,    
   //               `----+----+----+----'    `----+----+----+----'
   ),
-
+ 
   [_RAISE] = LAYOUT_kc( \
   // \ [ ] ! & |      @ = + * %
   // # ( ) " ' ~ 
@@ -149,9 +156,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      HASH,LPRN,RPRN,DQT ,QUOT,TILD,               LEFT,DOWN, UP ,RGHT,    ,    ,
   //|----+----+----+----+----+----+              |----+----+----+----+----+----|
-     GRV ,LCBR,RCBR,    ,CIRC,DLR ,             CMDTAB,CMDL,CMDR,CTLL,CTLR,    ,
+     GRV ,LCBR,RCBR,    ,CIRC,DLR ,                   ,CMDL,CMDR,CAL,CAR,    , 
   //`----+----+----+--+-+----+----+              +----+----+----+----+----+----'
-                        ,TAB ,BSPC,ENT ,         ,    ,    ,  
+                        , HA ,BSPC,ENT ,         ,    ,    ,  
   //               `----+----+----+----'    `----+----+----+----'
   ),
 

@@ -68,7 +68,7 @@ enum macro_keycodes {
 #define KC_L1_EN LT(3, KC_LANG2)
 #define KC_L2_EN LT(4, KC_LANG2)
 #define KC_L1_SPC LT(3, KC_SPC)
-#define KC_R_ENT LT(4, KC_ENT)
+#define KC_L2_ENT LT(4, KC_ENT)
 
 #define KC_ADJD MO(16)
 #define KC_VD KC__VOLDOWN
@@ -126,13 +126,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT_kc( \
   //,----+----+----+----+----+----+----.     ,----+----+----+----+----+----+----.
-     TAB , Q  , W  , E  , R  ,XXXX,XXXX,      XXXX,XXXX, U  , I  , O  , P  ,MINS,
+     TAB , Q  , W  ,COMM,DOT ,XXXX,XXXX,      XXXX,XXXX, R  , D  , Y  , P  ,MINS,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-    S_ESC, A  , S  , D  , F  , G  , T  ,       Y  , H  , J  , K  , L  ,SCLN,S_ESC,
+    S_ESC, A  , O  , E  , I  , U  ,SCLN,       M  , G  , T  , K  , S  , N  ,S_ESC,
   //|----+----+----+----+----+----+----+     |----+----+----+----+----+----+----|
-     XXXX, Z  , X  , C  , V  , B  ,LBRC,      RBRC, N  , M  ,COMM,DOT ,SLSH,XXXX,
+     XXXX, Z  , X  , C  , V  , F  ,LBRC,      RBRC, B  , H  , J  , L  ,SLSH,XXXX,
   //`----+----+----+----+----+----+----/     \----+----+----+----+----+----+----'
-                  A_DEL,S_EN,M_SPC,C_BS,     C_BS,R_ENT,S_JA,A_DEL
+                  A_DEL,S_EN,M_SPC,C_BS,     C_BS,L2_ENT,S_JA,A_DEL
   //               `----+----+----+----'    `----+----+----+----'
   ), 
 

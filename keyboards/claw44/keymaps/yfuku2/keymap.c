@@ -10,11 +10,6 @@
 
 extern keymap_config_t keymap_config;
 
-#ifdef RGBLIGHT_ENABLE
-//Following line allows macro to read current RGB settings
-extern rgblight_config_t rgblight_config;
-#endif
-
 extern uint8_t is_master;
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
@@ -28,9 +23,7 @@ extern uint8_t is_master;
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
-  RAISE,
-  BACKLIT,
-  RGBRST
+  RAISE
 };
 
 enum macro_keycodes {
@@ -43,44 +36,17 @@ enum macro_keycodes {
 #define KC_LOWER LOWER
 #define KC_RAISE RAISE
 #define KC_RST   RESET
-#define KC_LRST  RGBRST
-#define KC_LTOG  RGB_TOG
-#define KC_LHUI  RGB_HUI
-#define KC_LHUD  RGB_HUD
-#define KC_LSAI  RGB_SAI
-#define KC_LSAD  RGB_SAD
-#define KC_LVAI  RGB_VAI
-#define KC_LVAD  RGB_VAD
-#define KC_LMOD  RGB_MOD
-#define KC_CTLTB CTL_T(KC_TAB)
-#define KC_GUIEI GUI_T(KC_LANG2)
-#define KC_ALTKN ALT_T(KC_LANG1)
-
-#define KC_LRBW RGB_M_R
-
-// yfuku
 #define KC_ KC_TRNS
-
-#define KC_L1_JA LT(3, KC_LANG1)
-#define KC_L2_JA LT(4, KC_LANG1)
-#define KC_L1_EN LT(3, KC_LANG2)
-#define KC_L2_EN LT(4, KC_LANG2)
-#define KC_L1_SPC LT(3, KC_SPC)
-#define KC_R_ENT LT(4, KC_ENT)
-
 #define KC_VD KC__VOLDOWN
 #define KC_VU KC__VOLUP
 
-#define KC_CMDTAB LCMD(KC_TAB)
-#define KC_CMDSPC LCMD(KC_SPC)
-#define KC_CMDL LCMD(KC_LEFT)
-#define KC_CMDR LCMD(KC_RIGHT)
-
-#define KC_CL RCTL(KC_L)
-#define KC_CA LCTL(KC_A)
-#define KC_CE LCTL(KC_E)
-#define KC_CAR LCTL(KC_RIGHT)
-#define KC_CAL LCTL(KC_LEFT)
+// layer
+#define KC_L_JA LT(3, KC_LANG1)
+#define KC_R_JA LT(4, KC_LANG1)
+#define KC_L_EN LT(3, KC_LANG2)
+#define KC_R_EN LT(4, KC_LANG2)
+#define KC_L_SPC LT(3, KC_SPC)
+#define KC_R_ENT LT(4, KC_ENT)
 
 // shift_t
 #define KC_S_ESC LSFT_T(KC_ESC)
@@ -162,17 +128,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-int RGB_current_mode;
-
 void persistent_default_layer_set(uint16_t default_layer) {
   eeconfig_update_default_layer(default_layer);
   default_layer_set(default_layer);
 }
 
 void matrix_init_user(void) {
-    #ifdef RGBLIGHT_ENABLE
-      RGB_current_mode = rgblight_config.mode;
-    #endif
     //SSD1306 OLED init, make sure to add #define SSD1306OLED in config.h
     #ifdef SSD1306OLED
         iota_gfx_init(!has_usb());   // turns on the display

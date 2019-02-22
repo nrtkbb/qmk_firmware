@@ -24,13 +24,11 @@ extern uint8_t is_master;
 #define _QWERTY 0
 #define _LOWER 3
 #define _RAISE 4
-#define _ADJUST 16
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
-  ADJUST,
   BACKLIT,
   RGBRST
 };
@@ -68,9 +66,8 @@ enum macro_keycodes {
 #define KC_L1_EN LT(3, KC_LANG2)
 #define KC_L2_EN LT(4, KC_LANG2)
 #define KC_L1_SPC LT(3, KC_SPC)
-#define KC_L2_ENT LT(4, KC_ENT)
+#define KC_R_ENT LT(4, KC_ENT)
 
-#define KC_ADJD MO(16)
 #define KC_VD KC__VOLDOWN
 #define KC_VU KC__VOLUP
 
@@ -118,7 +115,7 @@ enum macro_keycodes {
 #define KC_A_DEL ALT_T(KC_DEL)
 
 // hyper
-#define KC_HA HYPR(KC_A)
+#define KC_H_A HYPR(KC_A)
 
 
 
@@ -132,7 +129,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+     |----+----+----+----+----+----|
          , Z  , X  , C  , V  , B  ,       N  , M  ,COMM,DOT ,SLSH,    ,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
-              A_DEL,S_EN,M_SPC,C_BS,     C_BS,L2_ENT,S_JA,A_DEL
+              A_DEL,S_EN,M_SPC,C_BS,     C_BS,R_ENT,S_JA,A_DEL
   //          `----+----+----+----'     `----+----+----+----'
   ), 
 
@@ -148,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
      LCBR, 1  , 2  , 3  , 4  , 5  ,       6  , 7  , 8  , 9  , 0  ,RCBR,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
-                   , HA ,BSPC,ENT ,          ,    ,    ,ADJD
+                   ,SPC ,BSPC,ENT ,          ,    ,    ,RST
   //          `----+----+----+----'     `----+----+----+----'
   ),
 
@@ -163,18 +160,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                    ,    ,    ,    ,          ,    ,    ,    
   //          `----+----+----+----'     `----+----+----+----'
   ),
-
-  [_ADJUST] = LAYOUT_kc( \
-  //,-----------------------------------------.                ,-----------------------------------------.
-        RST,  LRST,  LRBW, XXXXX, XXXXX, XXXXX,                  F1   , F2   , VD   , VU   , XXXXX, XXXXX,\
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LTOG,  LHUI,  LSAI,  LVAI, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LMOD,  LHUD,  LSAD,  LVAD, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
-  //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                           GUIEI, LOWER,   SPC,XXXXX,    XXXXX,    ENT, RAISE, ALTKN \
-                              //`--------------------'  `--------------------'
-  )
 };
 
 int RGB_current_mode;
@@ -182,15 +167,6 @@ int RGB_current_mode;
 void persistent_default_layer_set(uint16_t default_layer) {
   eeconfig_update_default_layer(default_layer);
   default_layer_set(default_layer);
-}
-
-// Setting ADJUST layer RGB back to default
-void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
-  if (IS_LAYER_ON(layer1) && IS_LAYER_ON(layer2)) {
-    layer_on(layer3);
-  } else {
-    layer_off(layer3);
-  }
 }
 
 void matrix_init_user(void) {
@@ -269,49 +245,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LOWER:
       if (record->event.pressed) {
         layer_on(_LOWER);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
       } else {
         layer_off(_LOWER);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
       }
       return false;
       break;
     case RAISE:
       if (record->event.pressed) {
         layer_on(_RAISE);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
       } else {
         layer_off(_RAISE);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
       }
       return false;
-      break;
-    case ADJUST:
-        if (record->event.pressed) {
-          layer_on(_ADJUST);
-        } else {
-          layer_off(_ADJUST);
-        }
-        return false;
-        break;
-    case RGB_MOD:
-      #ifdef RGBLIGHT_ENABLE
-        if (record->event.pressed) {
-          rgblight_mode(RGB_current_mode);
-          rgblight_step();
-          RGB_current_mode = rgblight_config.mode;
-        }
-      #endif
-      return false;
-      break;
-    case RGBRST:
-      #ifdef RGBLIGHT_ENABLE
-        if (record->event.pressed) {
-          eeconfig_update_rgblight_default();
-          rgblight_enable();
-          RGB_current_mode = rgblight_config.mode;
-        }
-      #endif
       break;
   }
   return true;

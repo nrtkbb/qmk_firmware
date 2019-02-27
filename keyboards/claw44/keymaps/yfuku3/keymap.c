@@ -75,8 +75,10 @@ enum macro_keycodes {
 #define KC_M_EN LCMD_T(KC_LANG2)
 #define KC_M_JA LCMD_T(KC_LANG1)
 #define KC_M_SPC LCMD_T(KC_SPC)
+#define KC_M_D LCMD_T(KC_D)
 #define KC_M_F LCMD_T(KC_F)
 #define KC_M_J LCMD_T(KC_J)
+#define KC_M_K LCMD_T(KC_K)
 
 // ctl_t
 #define KC_C_ESC LCTL_T(KC_ESC)
@@ -88,16 +90,20 @@ enum macro_keycodes {
 #define KC_C_MINS LCTL_T(KC_MINS)
 #define KC_C_ENT LCTL_T(KC_ENT)
 #define KC_C_ENT LCTL_T(KC_ENT)
+#define KC_C_A LCTL_T(KC_A)
 #define KC_C_S LCTL_T(KC_S)
 #define KC_C_D LCTL_T(KC_D)
 #define KC_C_K LCTL_T(KC_K)
 #define KC_C_L LCTL_T(KC_L)
+#define KC_C_SC LCTL_T(KC_SCLN)
 
 // alt_t
 #define KC_A_ESC ALT_T(KC_ESC)
 #define KC_A_DEL ALT_T(KC_DEL)
 #define KC_A_A ALT_T(KC_A)
+#define KC_A_Z ALT_T(KC_Z)
 #define KC_A_SC ALT_T(KC_SCLN)
+#define KC_A_SL ALT_T(KC_SLSH)
 
 // hyper
 #define KC_H_A HYPR(KC_A)
@@ -117,15 +123,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //          `----+----+----+----'     `----+----+----+----'
   ), 
 
-  //   \ ^ ! & |  @ = + * %  
+  //   \ ^ ! & |  @ = + * % -
   // ( # $ " ' ~  ← ↓ ↑ → ` )
   //   1 2 3 4 5  6 7 8 9 0  
 
   [_RAISE] = LAYOUT_kc( \
   //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
-     GRV ,BSLS,CIRC,EXLM,AMPR,PIPE,      AT  ,EQL ,PLUS,ASTR,PERC,MINS,
+         ,BSLS,CIRC,EXLM,AMPR,PIPE,      AT  ,EQL ,PLUS,ASTR,PERC,MINS,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-     LPRN,HASH,DLR ,DQT ,QUOT,TILD,      LEFT,DOWN, UP ,RGHT,DOT ,RPRN,
+     LPRN,HASH,DLR ,DQT ,QUOT,TILD,      LEFT,DOWN, UP ,RGHT,GRV ,RPRN,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
         ,     ,    ,    ,LCBR,LBRC,      RBRC,RCBR,    ,    ,    ,    ,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
@@ -141,7 +147,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,          ,    ,COMM,DOT ,SLSH,    ,
   //`----+----+----+--+-+----+----/     \----+----+----+----+----+----'
-                   ,    ,    ,    ,          ,    ,    ,    
+               RST ,    ,    ,    ,          ,DEL ,    ,    
   //          `----+----+----+----'     `----+----+----+----'
   ),
 };

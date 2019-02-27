@@ -31,12 +31,12 @@ enum macro_keycodes {
 };
 
 #define KC______ KC_TRNS
+#define KC_ KC_TRNS
 #define KC_XXXX  KC_NO
 #define KC_XXXXX KC_NO
 #define KC_LOWER LOWER
 #define KC_RAISE RAISE
 #define KC_RST   RESET
-#define KC_ KC_TRNS
 #define KC_VD KC__VOLDOWN
 #define KC_VU KC__VOLUP
 
@@ -46,9 +46,13 @@ enum macro_keycodes {
 #define KC_L_EN LT(3, KC_LANG2)
 #define KC_R_EN LT(4, KC_LANG2)
 #define KC_L_SPC LT(3, KC_SPC)
+#define KC_R_SPC LT(4, KC_SPC)
+#define KC_L_ENT LT(3, KC_ENT)
 #define KC_R_ENT LT(4, KC_ENT)
 #define KC_L_ESC LT(3, KC_ESC)
+#define KC_R_ESC LT(4, KC_ESC)
 #define KC_L_DEL LT(3, KC_DEL)
+#define KC_R_DEL LT(4, KC_DEL)
 
 // shift_t
 #define KC_S_ESC LSFT_T(KC_ESC)
@@ -61,6 +65,8 @@ enum macro_keycodes {
 #define KC_S_EN LSFT_T(KC_LANG2)
 #define KC_S_LBRC LSFT_T(KC_LBRC)
 #define KC_S_RBRC LSFT_T(KC_RBRC)
+#define KC_S_A LSFT_T(KC_A)
+#define KC_S_SC LSFT_T(KC_SCLN)
 
 // cmd_t
 #define KC_M_BS LCMD_T(KC_BSPC)
@@ -90,6 +96,8 @@ enum macro_keycodes {
 // alt_t
 #define KC_A_ESC ALT_T(KC_ESC)
 #define KC_A_DEL ALT_T(KC_DEL)
+#define KC_A_A ALT_T(KC_A)
+#define KC_A_SC ALT_T(KC_SCLN)
 
 // hyper
 #define KC_H_A HYPR(KC_A)
@@ -101,19 +109,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
      TAB , Q  , W  , E  , R  , T  ,       Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-    S_ESC, A  ,C_S , D  ,M_F , G  ,       H  ,M_J , K  ,C_L ,SCLN,S_ESC,
+    S_ESC,A_A ,C_S , D  ,M_F , G  ,       H  ,M_J , K  ,C_L ,A_SC,S_ESC,
   //|----+----+----+----+----+----+     |----+----+----+----+----+----|
          , Z  , X  , C  , V  , B  ,       N  , M  ,COMM,DOT ,SLSH,    ,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
-             A_DEL,S_EN,L_SPC,C_BS,      C_BS,R_ENT,S_JA,A_DEL
+               DEL,S_EN,L_SPC,BSPC,      BSPC,R_ENT,S_JA,DEL
   //          `----+----+----+----'     `----+----+----+----'
   ), 
 
-  [_RAISE] = LAYOUT_kc( \
   //   \ ^ ! & |  @ = + * %  
   // ( # $ " ' ~  ← ↓ ↑ → ` )
   //   1 2 3 4 5  6 7 8 9 0  
 
+  [_RAISE] = LAYOUT_kc( \
   //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
      GRV ,BSLS,CIRC,EXLM,AMPR,PIPE,      AT  ,EQL ,PLUS,ASTR,PERC,MINS,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|

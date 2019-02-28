@@ -101,9 +101,11 @@ enum macro_keycodes {
 #define KC_A_ESC ALT_T(KC_ESC)
 #define KC_A_DEL ALT_T(KC_DEL)
 #define KC_A_A ALT_T(KC_A)
+#define KC_A_D ALT_T(KC_D)
 #define KC_A_Z ALT_T(KC_Z)
 #define KC_A_SC ALT_T(KC_SCLN)
 #define KC_A_SL ALT_T(KC_SLSH)
+#define KC_A_K ALT_T(KC_K)
 
 // hyper
 #define KC_H_A HYPR(KC_A)
@@ -113,9 +115,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT_kc( \
   //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
-     TAB , Q  , W  , E  , R  , T  ,       Y  , U  , I  , O  , P  ,MINS,
+         , Q  , W  , E  , R  , T  ,       Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-    S_ESC,A_A ,C_S , D  ,M_F , G  ,       H  ,M_J , K  ,C_L ,A_SC,S_ESC,
+    S_TAB, A  ,C_S ,A_D ,M_F , G  ,       H  ,M_J ,A_K ,C_L ,SCLN,S_ESC,
   //|----+----+----+----+----+----+     |----+----+----+----+----+----|
          , Z  , X  , C  , V  , B  ,       N  , M  ,COMM,DOT ,SLSH,    ,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'

@@ -16,9 +16,11 @@ extern uint8_t is_master;
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
-#define _QWERTY 0
-#define _LOWER 3
-#define _RAISE 4
+enum layer_number {
+    _QWERTY = 0,
+    _LOWER,
+    _RAISE,
+};
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -30,86 +32,35 @@ enum macro_keycodes {
   KC_SAMPLEMACRO,
 };
 
-#define KC______ KC_TRNS
+// common
 #define KC_ KC_TRNS
-#define KC_XXXX  KC_NO
-#define KC_XXXXX KC_NO
-#define KC_LOWER LOWER
-#define KC_RAISE RAISE
-#define KC_RST   RESET
+#define KC_XXXX KC_NO
+#define KC_RST RESET
 #define KC_VD KC__VOLDOWN
 #define KC_VU KC__VOLUP
 
 // layer
-#define KC_L_JA LT(3, KC_LANG1)
-#define KC_R_JA LT(4, KC_LANG1)
-#define KC_L_EN LT(3, KC_LANG2)
-#define KC_R_EN LT(4, KC_LANG2)
-#define KC_L_SPC LT(3, KC_SPC)
-#define KC_R_SPC LT(4, KC_SPC)
-#define KC_L_ENT LT(3, KC_ENT)
-#define KC_R_ENT LT(4, KC_ENT)
-#define KC_L_ESC LT(3, KC_ESC)
-#define KC_R_ESC LT(4, KC_ESC)
-#define KC_L_DEL LT(3, KC_DEL)
-#define KC_R_DEL LT(4, KC_DEL)
+#define KC_L_SPC LT(_LOWER, KC_SPC)
+#define KC_R_ENT LT(_RAISE, KC_ENT)
 
 // shift_t
-#define KC_S_ESC LSFT_T(KC_ESC)
-#define KC_S_BS LSFT_T(KC_BSPC)
-#define KC_S_L1 LSFT_T(KC_LANG1)
-#define KC_S_L2 LSFT_T(KC_LANG2)
-#define KC_S_MINS LSFT_T(KC_MINS)
 #define KC_S_TAB LSFT_T(KC_TAB)
+#define KC_S_ESC LSFT_T(KC_ESC)
 #define KC_S_JA LSFT_T(KC_LANG1)
 #define KC_S_EN LSFT_T(KC_LANG2)
-#define KC_S_LBRC LSFT_T(KC_LBRC)
-#define KC_S_RBRC LSFT_T(KC_RBRC)
-#define KC_S_A LSFT_T(KC_A)
-#define KC_S_SC LSFT_T(KC_SCLN)
 
 // cmd_t
-#define KC_M_BS LCMD_T(KC_BSPC)
-#define KC_M_DEL LCMD_T(KC_DEL)
-#define KC_M_ESC LCMD_T(KC_ESC)
-#define KC_M_EN LCMD_T(KC_LANG2)
-#define KC_M_JA LCMD_T(KC_LANG1)
-#define KC_M_SPC LCMD_T(KC_SPC)
-#define KC_M_D LCMD_T(KC_D)
+#define KC_M_A LCMD_T(KC_A)
 #define KC_M_F LCMD_T(KC_F)
 #define KC_M_J LCMD_T(KC_J)
-#define KC_M_K LCMD_T(KC_K)
 
 // ctl_t
-#define KC_C_ESC LCTL_T(KC_ESC)
-#define KC_C_L1 CTL_T(KC_LANG1)
-#define KC_C_L2 CTL_T(KC_LANG2)
-#define KC_C_BS LCTL_T(KC_BSPC)
-#define KC_C_DEL LCTL_T(KC_DEL)
-#define KC_C_TAB LCTL_T(KC_TAB)
-#define KC_C_MINS LCTL_T(KC_MINS)
-#define KC_C_ENT LCTL_T(KC_ENT)
-#define KC_C_ENT LCTL_T(KC_ENT)
-#define KC_C_A LCTL_T(KC_A)
 #define KC_C_S LCTL_T(KC_S)
-#define KC_C_D LCTL_T(KC_D)
-#define KC_C_K LCTL_T(KC_K)
 #define KC_C_L LCTL_T(KC_L)
-#define KC_C_SC LCTL_T(KC_SCLN)
 
 // alt_t
-#define KC_A_ESC ALT_T(KC_ESC)
-#define KC_A_DEL ALT_T(KC_DEL)
-#define KC_A_A ALT_T(KC_A)
 #define KC_A_D ALT_T(KC_D)
-#define KC_A_Z ALT_T(KC_Z)
-#define KC_A_SC ALT_T(KC_SCLN)
-#define KC_A_SL ALT_T(KC_SLSH)
 #define KC_A_K ALT_T(KC_K)
-
-// hyper
-#define KC_H_A HYPR(KC_A)
-
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -117,13 +68,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
          , Q  , W  , E  , R  , T  ,       Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-    S_TAB, A  ,C_S ,A_D ,M_F , G  ,       H  ,M_J ,A_K ,C_L ,SCLN,S_ESC,
+    S_TAB,M_A  ,C_S ,A_D ,M_F , G  ,       H  ,M_J ,A_K ,C_L ,SCLN,S_ESC,
   //|----+----+----+----+----+----+     |----+----+----+----+----+----|
          , Z  , X  , C  , V  , B  ,       N  , M  ,COMM,DOT ,SLSH,    ,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
                DEL,S_EN,L_SPC,BSPC,      BSPC,R_ENT,S_JA,DEL
   //          `----+----+----+----'     `----+----+----+----'
-  ), 
+  ),
 
   //   \ ^ ! & |  @ = + * % -
   // ( # $ " ' ~  ← ↓ ↑ → ` )
@@ -149,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,          ,    ,COMM,DOT ,SLSH,    ,
   //`----+----+----+--+-+----+----/     \----+----+----+----+----+----'
-               RST ,    ,    ,    ,          ,DEL ,    ,    
+               RST ,    ,    ,    ,          ,DEL ,    ,
   //          `----+----+----+----'     `----+----+----+----'
   ),
 };

@@ -38,7 +38,6 @@ enum macro_keycodes {
 #define KC_RST RESET
 #define KC_VD KC__VOLDOWN
 #define KC_VU KC__VOLUP
-#define KC_SS LCMD(LSFT(KC_4))
 
 // layer
 #define KC_L_SPC LT(_LOWER, KC_SPC)
@@ -51,9 +50,10 @@ enum macro_keycodes {
 #define KC_S_EN LSFT_T(KC_LANG2)
 
 // cmd_t
-#define KC_M_A LCMD_T(KC_A)
 #define KC_M_F LCMD_T(KC_F)
+#define KC_M_D LCMD_T(KC_D)
 #define KC_M_J LCMD_T(KC_J)
+#define KC_M_K LCMD_T(KC_K)
 
 // ctl_t
 #define KC_C_S LCTL_T(KC_S)
@@ -62,6 +62,12 @@ enum macro_keycodes {
 // alt_t
 #define KC_A_D ALT_T(KC_D)
 #define KC_A_K ALT_T(KC_K)
+#define KC_A_Z ALT_T(KC_Z)
+#define KC_A_SL ALT_T(KC_SLSH)
+
+// cmd+shift
+#define KC_MS_A SCMD_T(KC_A)
+#define KC_MS_SC SCMD_T(KC_SCLN)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -69,9 +75,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
          , Q  , W  , E  , R  , T  ,       Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
-    S_TAB,M_A  ,C_S ,A_D ,M_F , G  ,       H  ,M_J ,A_K ,C_L ,SCLN,S_ESC,
+    S_TAB,MS_A,C_S ,A_D ,M_F , G  ,       H  ,M_J ,A_K ,C_L,MS_SC,S_ESC,
   //|----+----+----+----+----+----+     |----+----+----+----+----+----|
-         , Z  , X  , C  , V  , B  ,       N  , M  ,COMM,DOT ,SLSH,    ,
+         , Z  , X  , C  , V  , B  ,       N  , M ,COMM,DOT ,SLSH,    ,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
                DEL,S_EN,L_SPC,BSPC,      BSPC,R_ENT,S_JA,DEL
   //          `----+----+----+----'     `----+----+----+----'
@@ -95,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_kc( \
   //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
-         ,    ,    ,    ,SS  ,    ,          ,EQL ,PLUS,ASTR,PERC,MINS,
+         ,    ,    ,    ,    ,    ,          ,EQL ,PLUS,ASTR,PERC,MINS,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
          , 1  , 2  , 3  , 4  , 5  ,       6  , 7  , 8  , 9  , 0  ,    ,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|

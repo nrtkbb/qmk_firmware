@@ -38,6 +38,7 @@ enum macro_keycodes {
 #define KC_RST RESET
 #define KC_VD KC__VOLDOWN
 #define KC_VU KC__VOLUP
+#define KC_SS LCMD(LSFT(KC_4))
 
 // layer
 #define KC_L_SPC LT(_LOWER, KC_SPC)
@@ -94,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_kc( \
   //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
-         ,    ,    ,    ,    ,    ,          ,EQL ,PLUS,ASTR,PERC,MINS,
+         ,    ,    ,    ,SS  ,    ,          ,EQL ,PLUS,ASTR,PERC,MINS,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
          , 1  , 2  , 3  , 4  , 5  ,       6  , 7  , 8  , 9  , 0  ,    ,
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|

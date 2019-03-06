@@ -69,7 +69,18 @@ enum macro_keycodes {
 #define KC_MS_A SCMD_T(KC_A)
 #define KC_MS_SC SCMD_T(KC_SCLN)
 
+//
+#define KC_MR RCMD(KC_R)
+#define KC_MF RCMD(KC_F)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+
+  // M_ = LCMD_T(
+  // A_ = ALT_T(
+  // C_ = LCTL_T(
+  // MS_ = SMD_T(
+  // R_ = LT(_RAISE
+  // L_ = LT(_LOWER
 
   [_QWERTY] = LAYOUT_kc( \
   //,----+----+----+----+----+----.     ,----+----+----+----+----+----.
@@ -77,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|     |----+----+----+----+----+----|
     S_TAB,MS_A,C_S ,A_D ,M_F , G  ,       H  ,M_J ,A_K ,C_L,MS_SC,S_ESC,
   //|----+----+----+----+----+----+     |----+----+----+----+----+----|
-         , Z  , X  , C  , V  , B  ,       N  , M ,COMM,DOT ,SLSH,    ,
+         , Z  , X  , C  , V  , B  ,       N  , M  ,COMM,DOT ,SLSH,    ,
   //`----+----+----+----+----+----/     \----+----+----+----+----+----'
                DEL,S_EN,L_SPC,BSPC,      BSPC,R_ENT,S_JA,DEL
   //          `----+----+----+----'     `----+----+----+----'

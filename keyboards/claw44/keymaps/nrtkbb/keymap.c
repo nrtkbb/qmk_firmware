@@ -153,13 +153,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //               `----+-----+----+----'  `----+-----+-----+----'
   ),
 
-  // \ [ ] ! & |
-  // BSLS,LBRC,RBRC,EXLM,AMPR,PIPE,               AT  ,EQL ,PLUS,ASTR,PERC,    ,
-
   [_RAISE] = LAYOUT_kc( \
-  // \ [ ] ! & |      @ = + * %
-  // # ( ) " ' ~ 
-  // ` { }   ^ $
+  // ! @ # $ %   ^ & * ( )
+  //   _ + | ~   : " > { }
+  //   - = \ `   ; ' < [ ]
 
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
          ,EXLM,AT  ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,    ,
